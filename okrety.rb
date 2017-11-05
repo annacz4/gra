@@ -1,32 +1,26 @@
-location1 = 3
-location2 = 4
-location3 = 5
+location = [3,4,5]
 guesses = 0
-is_sunk = false
+is_floating = true
 hits = 0
 
 
-print "Zagrajmy w statki! Wybierz liczbę od 1 do 7"
-guess = gets.chomp.to_i
+while is_floating
 
-while is_sunk == false
-  puts 'Wybierz pole od 1 do 7'
+  print 'Zagrajmy w statki! Wybierz liczbę od 1 do 7'
+  guess = gets.chomp.to_i
 
   if guess < 1 || guess > 7
     puts 'Proszę podać nr pola - od 1 do 7'
+  else
     guesses = guesses + 1
 
-    if guess == location1 || guess == location2 || guess == location3
+    if guess == location[0] || guess == location[1] || guess == location[2]
       hits = hits + 1
 
       if hits == 3
         puts 'Trafiony zatopiony'
-        is_sunk = true
-
+        is_floating = false
       end
-
-      end
-
     end
-
   end
+end
